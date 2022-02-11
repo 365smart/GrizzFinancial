@@ -1,0 +1,74 @@
+body {
+    margin:10px;
+
+}
+.logo{
+    height:fit-content;
+    color:#B59A57;
+    font-size: 30px;
+    background-color:black;
+    border-radius:10px;
+    border-style:solid;
+    width:fit-content;
+    padding:5px;
+
+}
+/*-------------------CATEGORY LIST-------------*/
+#categoryTable{
+    background-color:black;
+    color:#B59A57;
+    padding:5px;
+    border-style:solid;
+    border-color:#B59A57;
+    border-collapse: collapse;
+    margin: 20px;
+}
+#categoryTable tr{
+    text-align: center;
+    padding:5%;
+    border: solid lightgrey;
+
+}
+#categoryTable th,td{
+    padding:5%;
+}
+#categoryTable button{
+    color:#B59A57;
+    text-align:center;
+    padding: 5%;
+    display:inline-block;
+    margin: 20px;
+    background-color:black;
+    border-style:solid;
+    border:gray;
+}
+#categoryTable button:hover{
+    background-color:gray;
+}
+/*---------------END CATEGORY LIST------------------*/
+
+/*------------START NAVIGATION BAR------------------------*/
+/* removes bullets,margins, paddding from LIST*/
+#navBar ul {
+    list-style-type: none;
+    margin: 20px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: black;
+}
+
+#navBar li{
+    float:left;
+}
+/*Actual text*/
+#navBar a{
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+#navBar li a:hover {
+    background-color: #B59A57;
+  }
+/*-------------END NAVIGATION BAR------------------------*/

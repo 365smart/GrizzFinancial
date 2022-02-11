@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <!--<link rel="stylesheet" href="style.css">-->
+  <title>Grizz Financial</title>
+</head>
+
+<!-- Using the logo at the top of the page -->
+<div class="logo" style="margin:auto;">
+  Grizz Financial
+</div>
+
+<!--<button class="loginBtn" onclick="window.location='register.html';" value="click here">Log on</button>-->
+
+<!-- start of navigation bar, able to get to each page of website -->
+
+<div id="navBar">
+  <ul>
+    <li><a th:href="@{/}">Home</a></li> <!--No need for it as it is the home page-->
+    <li><a th:href = "@{/register}">Registration</a></li>
+    <li><a th:href = "@{/login}">Login</a></li> <!--I am using the login page provided by spring boot, I will change that later-->
+    <li><a th:href = "@{/list_users}">Users</a></li> <!--For testing purposes-->
+    <li><a href="main.html">Budgeting</a></li>
+    <!--<li><a href="#">Progress??????</a></li>-->
+  </ul>
+</div>
+
+<img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
+     style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;" src="">
+
+
+<div class="About">
+  <h1>About Us/ Our Mission</h1>
+  <p>The purpose of this application is to increase the financial literacy of OU students. Our web application will
+    allow students to budget their money and also create better financial habits. Users will find this application
+    useful as it will allow them to conveniently determine how much money they have left, as well as stay on track
+    with their goals, and avoid overspending.
+  </p>
+  <h1>Financial Advice for Students: </h1>
+  <p>Pictures?? Financial advice?? How to create an account? charts about students</p>
+</div>
+<body>
+
+</body>
+
+</html>
