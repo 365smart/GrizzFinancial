@@ -72,3 +72,27 @@ body {
     background-color: #B59A57;
   }
 /*-------------END NAVIGATION BAR------------------------*/
+
+/*------------START LANDING PAGE-------------------------*/
+.row{
+    background-color:#B59A57;
+    height:360px;
+    padding: 20px;
+    margin: none;
+}
+.column {
+    float: left;
+  }
+
+  .left {
+
+    width: 50%;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+.facts{
+    text-align: center;
+}
