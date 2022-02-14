@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:href="@{/css/style.css}" rel="stylesheet">
-  <!--<link rel="stylesheet" href="style.css">-->
+  <link rel="stylesheet" href="style.css">
   <title>Grizz Financial</title>
 </head>
-
+<body>
 <!-- Using the logo at the top of the page -->
 <div class="logo" style="margin:auto;">
   Grizz Financial
@@ -21,30 +21,65 @@
 
 <div id="navBar">
   <ul>
-    <li><a th:href="@{/}">Home</a></li> <!--No need for it as it is the home page-->
-    <li><a th:href = "@{/register}">Registration</a></li>
-    <li><a th:href = "@{/login}">Login</a></li> <!--I am using the login page provided by spring boot, I will change that later-->
+    <li><a th:href="@{/}">Home</a></li>
+    <!--No need for it as it is the home page-->
+    <li><a th:href="@{/register}">Registration</a></li>
+    <li><a th:href="@{/login}">Login</a></li>
+    <!--I am using the login page provided by spring boot, I will change that later-->
     <!--<li><a th:href = "@{/list_users}">Users</a></li>-->
     <li><a href="main.html">Budgeting</a></li>
     <!--<li><a href="#">Progress??????</a></li>-->
   </ul>
 </div>
 
-<img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
-     style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;" src="">
+<!--img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
+     style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;" src=""-->
+<div class="row">
+  <div class="column">
+    <div class="left">
+      <!--<img src="oaklandBear.png" alt="Oakland Bear"
+        style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;"
+        src="">-->
+      <img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
+           style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;"
+           src="">
+    </div>
+    <div class="right">
+      <h1>About Us</h1>
+      <p>Our mission for Grizz Financial is to help OU students learn to have good financial habits, as well as be
+        able
+        to make improved financial decisions for their future. Finances are a major stress for college students,
+        especially during the time of a pandemic. Our goal with Grizz Financial is to create a way to alleviate this
+        stress. With Grizz Financial, we aim to give students tools to understand how much of their money is being
+        spent, as well as how much is being saved.
+        Our vision is to give students a complete understanding of their financials. In the near future we plan to
+        implement a service that sends students weekly budget reports, as well as giving them financial advice curated
+        specifically for them and their needs. Grizz Financial aims to take away the stress and confusion of finances
+        that students have to deal with on top of their academic commitments. With many students also having to worry
+        about paying off student loans, an application like Grizz Financial can aid them in learning how to save, and
+        reduce unnecessary spending to perhaps help students in paying back their academic debt.
 
-
-<div class="About">
-  <h1>About Us/ Our Mission</h1>
-  <p>The purpose of this application is to increase the financial literacy of OU students. Our web application will
-    allow students to budget their money and also create better financial habits. Users will find this application
-    useful as it will allow them to conveniently determine how much money they have left, as well as stay on track
-    with their goals, and avoid overspending.
-  </p>
-  <h1>Financial Advice for Students: </h1>
-  <p>Pictures?? Financial advice?? How to create an account? charts about students</p>
+      </p>
+    </div>
+  </div>
 </div>
-<body>
+</div>
+
+<br>
+
+
+<div class="row">
+  <h1 class="facts">Did you know?</h1>
+  <ul>
+    <li>32% of students neglect their studies due to money that they owe.</li>
+    <li>7/10 students are stressed about their personal finances.</li>
+    <li>60% of students are worried about paying for school and monthly expenses.</li>
+    <li>30% of students borrowed the maximum loan amount that they qualify for each year.</li>
+    <li>3/10 students reduced their class load because of money they owe.</li>
+    <li>16% took a break from schooling due to debt.</li>
+  </ul>
+
+</div>
 
 </body>
 
