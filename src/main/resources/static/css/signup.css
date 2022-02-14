@@ -43,3 +43,11 @@ body {
 .link{
   font-size:14px;
 }
+/*register_success*/
+.signup_success{
+  font-size:25px
+}
+h2{
+  font-weight: bold;
+  font-size:18px
+}
