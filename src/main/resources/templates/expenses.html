@@ -27,6 +27,7 @@
             <th>Description</th>
             <th>Value</th>
             <th>Date</th>
+            <th> Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +35,9 @@
             <td th:text="${expense.description}"></td>
             <td>$ <span th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
             <td th:text="${expense.date}"></td>
+            <td><a th:href="@{/showFormForUpdate/{id}(id=${expense.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>
