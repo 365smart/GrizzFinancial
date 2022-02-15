@@ -16,6 +16,6 @@ public interface ExpenseService {
     void saveExpense(Long userId, Expense expense);
 
     //delete an expense
-    void delete(Expense expense);
+    void deleteExpense(Long expenseId, Long userId);
 
 }
