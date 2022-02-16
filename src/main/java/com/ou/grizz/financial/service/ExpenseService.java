@@ -18,4 +18,6 @@ public interface ExpenseService {
     //delete an expense
     void deleteExpense(Long expenseId, Long userId);
 
+    void updateExpense(Long userId,Long expenseId,Expense expense);
+
 }

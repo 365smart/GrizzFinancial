@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+a{
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color:#B59A57 !important;
+}
+body {
+    background-color: aliceblue;
+}
+#logo{
+    height:fit-content;
+    color:#B59A57;
+    font-size: 20px;
+    background-color:black;
+    width:fit-content;
+    padding:5px;
+
+}
+#container {
+    display:grid;
+    justify-items: center;
+}
+#topBar {
+    display:flex;
+    justify-content:space-between;
+    background-color: black;
+    padding: 15px;
+    margin:5px;
+    border-radius:10px;
+    border-style:solid;
+    border-color:#B59A57;
+    align-items: center;
+    max-width:600px;
+}
+#logoutButton:hover, #addExpenseButton:hover, #updateButton:hover, #deleteButton:hover {
+    background-color:rgb(136,116,65);
+}
+#expenses{
+    margin-left:50px;
+    margin-right:50px;
+    background-color:#242529;
+    padding: 5px 1%;
+    border-style:solid;
+    border-color:#B59A57;
+    border-radius:5px;
+    width: max-content;
+    box-shadow: 0px 10px 30px 5px rgba(0,0,0,.5)!important;
+}
+#expenseBar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #B59A57;
+    border-style:solid;
+}
+#expenseTable {
+    justify-content: space-between !important;
+    display:flex !important;
+}
+#editSelector{
+    display:none;
+}
+#description{
+    display:inline-flex;
+    justify-content: space-between;
+}
+#expenseDescription:hover #editSelector{
+    display:inline-flex;
+    padding-left: 25px;
+    padding-right: 0;
+}
+#expenseDescription:hover {
+    background-color:rgb(27,27.25,30.75);
+}
+#dropdownSelector:hover + #dropdownContent{
+    display:grid;
+}
+#dropdownContent:hover{
+    display:grid;
+}
+#dropdownSelector{
+    background-color:rgb(27,27.25,30.75);
+    color:aliceblue !important;
+    border:none;
+}
+#dropdown{
+    position: relative;
+    display: flex;
+}
+#dropdownContent{
+    display:none;
+    z-index:1;
+    position:absolute;
+    background-color:#242529;
+    font-size: 5px !important;
+
+}
+th, td {
+    padding: 10px 15px 10px 15px;
+    font-size: 24px;
+}
+th {
+    color:#B59A57;
+}
+td{
+    color:aliceblue;
+}
+tr{
+    justify-content: space-between;
+}
+

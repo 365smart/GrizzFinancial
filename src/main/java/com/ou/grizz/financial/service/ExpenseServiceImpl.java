@@ -30,7 +30,15 @@ public class ExpenseServiceImpl implements ExpenseService{
 
     @Override
     public Expense findById(Long expenseId) {
-        return null;
+        Optional<Expense> optional = expenseRepository.findById(expenseId);
+        Expense expense;
+        if (optional.isPresent()) {
+            expense = optional.get();
+        }
+        else{
+            throw new UsernameNotFoundException("This expense is not found");
+        }
+        return expense;
     }
 
     @Override
@@ -59,6 +67,24 @@ public class ExpenseServiceImpl implements ExpenseService{
             expense.setUser(null); //Now the expense is detached from its parent and thus when I delete it in the next line, it will not affect its parent
             expenseRepository.deleteById(expenseId); //since the cascade type is all. If I do not detach the expense from the parent, when I delete the expense
                                                     //the parent gets deleted with it
+            userRepository.save(user);
+        } else {
+            throw new UsernameNotFoundException("This user is not found");
+        }
+    }
+
+    @Override
+    public void updateExpense(Long userId,Long expenseId, Expense newExpense) {
+        Optional<User> uOptional = userRepository.findById(userId);
+        Optional<Expense> eOptional = expenseRepository.findById(expenseId);
+        if (uOptional.isPresent()&&eOptional.isPresent()) {
+            User user = uOptional.get();
+            Expense oldExpense = eOptional.get();
+            user.removeExpense(oldExpense);
+            oldExpense.setUser(null);
+            expenseRepository.deleteById(expenseId);
+            user.addExpense(newExpense);
+            newExpense.setUser(user);
             userRepository.save(user);
         } else {
             throw new UsernameNotFoundException("This user is not found");

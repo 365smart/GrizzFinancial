@@ -36,12 +36,28 @@ public class ExpenseController {
         return "new_expense";
     }
 
+    @GetMapping("/showUpdateExpenseForm/{id}")
+    public String showUpdateExpenseForm(@PathVariable("id")Long expenseId,Model model) {
+        Expense expense = expenseService.findById(expenseId);
+        model.addAttribute("expense",expense);
+        return "update_expense";
+    }
+
     //method handler to save the new expense the was created in the showNewExpenseForm
     @PostMapping("/saveExpense")
     public String saveExpense(@AuthenticationPrincipal CustomUserDetails loggedInUser,
                               @ModelAttribute("expense") Expense expense) {
 
         expenseService.saveExpense(loggedInUser.getUserId(), expense);
+        return "redirect:/expenses";
+    }
+
+    @PostMapping("/updateExpense{id}")
+    public String updateExpense(@PathVariable("id") Long expenseId,
+                                @AuthenticationPrincipal CustomUserDetails loggedInUser,
+                                @ModelAttribute("expense") Expense expense) {
+
+        expenseService.updateExpense(loggedInUser.getUserId(), expenseId ,expense);
         return "redirect:/expenses";
     }
 

@@ -9,38 +9,62 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+    <link th:href="@{/css/expense.css}" rel="stylesheet">
 </head>
 <body>
-<div class="container my-2">
-    <div class="text-center">
-        <p class="lead">Here are your expenses <b><span sec:authentication="principal.fullName">fullName</span></b></p>
+<div id="container">
+    <div id="topBar">
+        <div id = "logo">Grizz Financial</div>
+        <div id="logoutButton">
+            <a th:href="@{/logout}" class="btn">Logout</a>
+        </div>
     </div>
-    <a th:href="@{/logout}" class="btn btn-danger btn-sm">Logout</a>
-
-    <!-- create a hyperlink that shows  form that allows user to add expenses-->
-    <div class="text-center">
-        <a th:href = "@{/showNewExpenseForm}" class="btn btn-primary btn-sm mb-3">Add Expense</a>
+    <div id = "expenses">
+        <div id="expenseBar">
+            <a id="username" style="font-size:28px !important">
+                <span sec:authentication="principal.fullName">fullName</span>'s Expense Report
+            </a>
+            <!-- create a hyperlink that shows  form that allows user to add expenses-->
+        </div>
+        <div id="expenseTable">
+            <table>
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Value</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="expenseDescription" th:each="expense : ${userExpenses}">
+                    <td id="description" th:text="${expense.description}">
+                        <!-- <div id="editSelector">
+                            <div id = "dropdown">
+                                <a id = "dropdownSelector"> ...</a>
+                                <div id = "dropdownContent">
+                                    <a id="updateButton" th:href="@{/showFormForUpdate/{id}(id=${expense.id})}" class="btn">Update</a>
+                                    <a id="deleteButton" th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn">Delete</a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </td>
+                    <td>$ <span th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
+                    <td th:text="${expense.date}"></td>
+                    <td>
+                        <a id="updateButton" th:href="@{/showUpdateExpenseForm/{id}(id=${expense.id})}" class="btn">Update</a>
+                        <a id="deleteButton" th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn">Delete</a>
+                    </td>
+                </tr>
+                <tr id="footer">
+                    <td colspan="3">
+                        <a id = "addExpenseButton" th:href = "@{/showNewExpenseForm}" class="btn">Add Expense</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead class="thead-dark">
-        <tr>
-            <th>Description</th>
-            <th>Value</th>
-            <th>Date</th>
-            <th> Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="expense : ${userExpenses}">
-            <td th:text="${expense.description}"></td>
-            <td>$ <span th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
-            <td th:text="${expense.date}"></td>
-            <td><a th:href="@{/showFormForUpdate/{id}(id=${expense.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn btn-danger">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 </body>
 </html>
