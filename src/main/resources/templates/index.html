@@ -6,20 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:href="@{/css/style.css}" rel="stylesheet">
+  <!-- <link href="style.css" rel="stylesheet">-->
   <title>Grizz Financial</title>
 </head>
+
 <body>
-<!-- Using the logo at the top of the page -->
-<div class="logo" style="margin:auto;">
+<!-- I dont really like this logo at the top. I could add it to the navigation bar??
+   Using the logo at the top of the page
+<div class=" logo" style="margin:auto;">
   Grizz Financial
 </div>
-
+-->
 <!-- start of navigation bar, able to get to each page of website -->
 
 <div id="navBar">
   <ul>
-    <li><a th:href="@{/}">Home</a></li>
-    <!--No need for it as it is the home page-->
+    <!--<li><a th:href="@{/}">Home</a></li>
+    No need for it as it is the home page-->
     <li><a th:href="@{/register}">Registration</a></li>
     <li><a th:href="@{/login}">Login</a></li>
     <!--I am using the login page provided by spring boot, I will change that later-->
@@ -29,50 +32,104 @@
   </ul>
 </div>
 
-<div class="row">
-  <div class="column">
-    <div class="left">
+<table class="t1" cellspacing="0" cellpadding="0">
+  <tr id="first_row">
+    <td>
+      <!--<img src="oaklandBear.png">-->
       <img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
            style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;"
            src="">
-    </div>
-    <div class="right">
-      <h1>About Us</h1>
+    </td>
+    <td>
+      <h1>Grizz Financial</h1>
       <p>Our mission for Grizz Financial is to help OU students learn to have good financial habits, as well as be
-        able
-        to make improved financial decisions for their future. Finances are a major stress for college students,
+        able to make improved financial decisions for their future. Finances are a major stress for college
+        students,
         especially during the time of a pandemic. Our goal with Grizz Financial is to create a way to alleviate this
         stress. With Grizz Financial, we aim to give students tools to understand how much of their money is being
         spent, as well as how much is being saved.
-        Our vision is to give students a complete understanding of their financials. In the near future we plan to
-        implement a service that sends students weekly budget reports, as well as giving them financial advice curated
-        specifically for them and their needs. Grizz Financial aims to take away the stress and confusion of finances
-        that students have to deal with on top of their academic commitments. With many students also having to worry
-        about paying off student loans, an application like Grizz Financial can aid them in learning how to save, and
-        reduce unnecessary spending to perhaps help students in paying back their academic debt.
-
       </p>
-    </div>
-  </div>
-</div>
 
+      <p>
+        Our vision is to give students a complete understanding of their finances. In the near future we plan to
+        implement a service that sends students weekly budget reports, as well as giving them financial advice
+        curated
+        specifically for them and their needs. Grizz Financial aims to take away the stress and confusion of
+        finances
+        that students have to deal with on top of their academic commitments. With many students also having to
+        worry
+        about paying off student loans, an application like Grizz Financial can aid them in learning how to save,
+        and
+        reduce unnecessary spending to perhaps help students in paying back their academic debt.
+      </p>
+
+
+    </td>
+  </tr>
+</table>
 
 <br>
 
-
-<div class="row">
-  <h1 class="facts">Did you know?</h1>
+<table id="t2">
+  <caption>10 Need-to-Know Facts About Students</caption>
   <ul>
-    <li>32% of students neglect their studies due to money that they owe.</li>
-    <li>7/10 students are stressed about their personal finances.</li>
-    <li>60% of students are worried about paying for school and monthly expenses.</li>
-    <li>30% of students borrowed the maximum loan amount that they qualify for each year.</li>
-    <li>3/10 students reduced their class load because of money they owe.</li>
-    <li>16% took a break from schooling due to debt.</li>
+    <td>
+      <span>&#9312;</span>
+      <!--HTML unicode for symbols-->
+      <br><br>
+      <li>32% of students neglect their studies due to money that they owe</li>
+    </td>
+    <td>
+      <span>&#9313;</span>
+      <!--HTML unicode for symbols-->
+      <br><br>
+      <li>7/10 students are stressed about their personal finances</li>
+    </td>
+    <td>
+      <span>&#9314;</span>
+      <br><br>
+      <li>60% of students are worried about paying for school and monthly expenses</li>
+    </td>
+    <td>
+      <span>&#9315;</span>
+      <br><br>
+      <li>30% of students borrowed the maximum loan amount that they qualify for each year</li>
+    </td>
+    <td>
+      <span>&#9316;</span>
+      <br><br>
+      <li>3/10 students reduced their class load because of money they owe</li>
+    </td>
+    </tr>
+    <tr>
+      <td>
+        <span>&#9317;</span>
+        <br><br>
+        <li>16% took a break from schooling due to debt</li>
+      </td>
+      <td>
+        <span>&#9318;</span>
+        <br><br>
+        <li>75% of US students experienced moderate to high financial distress in the past 12 months</li>
+      </td>
+      <td>
+        <span>&#9319;</span>
+        <br><br>
+        <li>17% of students experienced homelessness in the past year</li>
+      </td>
+      <td>
+        <span>&#9320;</span>
+        <br><br>
+        <li>24% of students reported that finances negatively impacted their performance in a class</li>
+      </td>
+      <td>
+        <span>&#9321;</span>
+        <br><br>
+        <li>35% of students reported their current financial situation as “stressful”</li>
+      </td>
+    </tr>
   </ul>
-
-</div>
-
+</table>
 </body>
 
 </html>
