@@ -6,15 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:href="@{/css/style.css}" rel="stylesheet">
-  <!-- <link href="style.css" rel="stylesheet">-->
+  <!--<link href="style.css" rel="stylesheet">-->
   <title>Grizz Financial</title>
 </head>
 
 <body>
 <!-- I dont really like this logo at the top. I could add it to the navigation bar??
-   Using the logo at the top of the page
+ Using the logo at the top of the page
 <div class=" logo" style="margin:auto;">
-  Grizz Financial
+Grizz Financial
 </div>
 -->
 <!-- start of navigation bar, able to get to each page of website -->
@@ -22,12 +22,12 @@
 <div id="navBar">
   <ul>
     <!--<li><a th:href="@{/}">Home</a></li>
-    No need for it as it is the home page-->
+  No need for it as it is the home page-->
     <li><a th:href="@{/register}">Registration</a></li>
     <li><a th:href="@{/login}">Login</a></li>
     <!--I am using the login page provided by spring boot, I will change that later-->
     <!--<li><a th:href = "@{/list_users}">Users</a></li>-->
-    <li><a href="main.html">Budgeting</a></li>
+    <!--<li><a href="main.html">Budgeting</a></li>-->
     <!--<li><a href="#">Progress??????</a></li>-->
   </ul>
 </div>
@@ -35,7 +35,7 @@
 <table class="t1" cellspacing="0" cellpadding="0">
   <tr id="first_row">
     <td>
-      <!--<img src="oaklandBear.png">-->
+      <!--  <img src="oaklandBear.png">-->
       <img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
            style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;"
            src="">
@@ -72,64 +72,97 @@
 
 <table id="t2">
   <caption>10 Need-to-Know Facts About Students</caption>
-  <ul>
-    <td>
-      <span>&#9312;</span>
-      <!--HTML unicode for symbols-->
-      <br><br>
-      <li>32% of students neglect their studies due to money that they owe</li>
-    </td>
-    <td>
-      <span>&#9313;</span>
-      <!--HTML unicode for symbols-->
-      <br><br>
-      <li>7/10 students are stressed about their personal finances</li>
-    </td>
-    <td>
-      <span>&#9314;</span>
-      <br><br>
-      <li>60% of students are worried about paying for school and monthly expenses</li>
-    </td>
-    <td>
-      <span>&#9315;</span>
-      <br><br>
-      <li>30% of students borrowed the maximum loan amount that they qualify for each year</li>
-    </td>
-    <td>
-      <span>&#9316;</span>
-      <br><br>
-      <li>3/10 students reduced their class load because of money they owe</li>
-    </td>
-    </tr>
-    <tr>
+  <tr>
+    <!--HTML unicode for symbols-->
+    <th><span>&#9312;</span></th>
+    <th><span>&#9313;</span></th>
+    <th><span>&#9314;</span></th>
+    <th><span>&#9315;</span></th>
+    <th><span>&#9316;</span></th>
+  </tr>
+
+  <tr>
+    <ul>
       <td>
-        <span>&#9317;</span>
-        <br><br>
-        <li>16% took a break from schooling due to debt</li>
+        <li>32% of students neglect their studies due to money that they owe</li>
       </td>
       <td>
-        <span>&#9318;</span>
-        <br><br>
-        <li>75% of US students experienced moderate to high financial distress in the past 12 months</li>
+        <li>7/10 students are stressed about their personal finances</li>
       </td>
       <td>
-        <span>&#9319;</span>
-        <br><br>
-        <li>17% of students experienced homelessness in the past year</li>
+        <li>60% of students are worried about paying for school and monthly expenses</li>
       </td>
       <td>
-        <span>&#9320;</span>
-        <br><br>
-        <li>24% of students reported that finances negatively impacted their performance in a class</li>
+        <li>30% of students borrowed the maximum loan amount that they qualify for each year</li>
       </td>
       <td>
-        <span>&#9321;</span>
-        <br><br>
-        <li>35% of students reported their current financial situation as “stressful”</li>
+        <li>3/10 students reduced their class load because of money they owe</li>
       </td>
-    </tr>
+  </tr>
+
+  <tr>
+    <!--HTML unicode for symbols-->
+    <th><span>&#9317;</span></th>
+    <th><span>&#9318;</span></th>
+    <th><span>&#9319;</span></th>
+    <th><span>&#9320;</span></th>
+    <th><span>&#9321;</span></th>
+  </tr>
+  <tr>
+    <td>
+      <li>16% took a break from schooling due to debt</li>
+    </td>
+    <td>
+      <li>75% of US students experienced moderate to high financial distress in the past 12 months</li>
+    </td>
+    <td>
+      <li>17% of students experienced homelessness in the past year</li>
+    </td>
+    <td>
+      <li>24% of students reported that finances negatively impacted their performance in a class</li>
+    </td>
+    <td>
+      <li>35% of students reported their current financial situation as “stressful”</li>
+    </td>
+  </tr>
   </ul>
+
+</table>
+
+
+<br>
+
+<table id="t3">
+  <tr>
+    <td class="left">
+      <div style="border-radius: 30px; padding: 50px; background-color: #242529; ">
+
+        <br>
+        <p>According to a national survey, “Seven out of 10 college students feel stressed about their
+          personal
+          finances…Nearly 60 percent said they worry about having enough money to pay for school, while half are
+          concerned
+          about paying their monthly expenses (Grabmeier, 2015).”
+        </p>
+
+      </div>
+    </td>
+
+    <td class="right">
+      <img th:src="@{/images/ohio.png}" alt="Oakland Bear" style="width: 520px; height: 320px" src="">
+      <!-- <img src="ohio.png" style="width: 520px; height: 320px; ">-->
+    </td>
+  </tr>
 </table>
 </body>
+<!--SHOULD WE HAVE A FOOTER???
+<footer id="footer">
+  <p>Contact us:</p>
+  <p>navigation links</p>
+
+</footer>
+
+-->
+
 
 </html>

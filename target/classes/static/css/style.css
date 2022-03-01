@@ -1,7 +1,12 @@
 body {
-    margin:10px;
-
+    margin-left: auto;
+    margin-right:auto;
+    background-color:#B59A57;
+    max-width: 960px;
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .logo{
     height:fit-content;
     color:#B59A57;
@@ -49,12 +54,14 @@ body {
 
 /*------------START NAVIGATION BAR------------------------*/
 /* removes bullets,margins, paddding from LIST*/
+
 #navBar ul {
     list-style-type: none;
     margin: 20px;
     padding: 5px;
     overflow: hidden;
-    background-color: black;
+    background-color: #242529;
+
 }
 
 #navBar li{
@@ -62,9 +69,10 @@ body {
 }
 /*Actual text*/
 #navBar a{
+    font-size: small;
     display: block;
     padding: 20px;
-    color: white;
+    color:  white;
     text-decoration: none;
 }
 
@@ -74,25 +82,112 @@ body {
 /*-------------END NAVIGATION BAR------------------------*/
 
 /*------------START LANDING PAGE-------------------------*/
-.row{
-    background-color:#B59A57;
-    height:360px;
-    padding: 20px;
-    margin: none;
+/*ABOUT US SECTION*/
+.t1 {border: none;
+margin: 10px;
+background-color: #242529;
 }
-.column {
+
+#first_row{
+
+    height:360px;
+    padding: 10px;
+    margin: none;
+    color: white;
+}
+
+#first_row img{
+    width: 350px;
+     height: 350px;
     float: left;
-  }
-
-  .left {
-
-    width: 50%;
-  }
-
-  .right {
-    width: 100%;
-  }
-
-.facts{
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: solid;
+}
+#first_row h1{
     text-align: center;
+    font-size: 30px;
+    color: #B59A57;
+}
+
+#first_row p{
+    text-align: center;
+    font-size: 16px;
+}
+
+
+
+/*FACTS SECTION.... table 2*/
+
+#t2{border: none;
+    margin: 10px;
+    background-color: #242529;
+    color: white;
+    padding: 15px 0 15px 0;
+}
+
+
+#t2 li{
+    list-style: none;
+    font-size: 15px;
+}
+
+#t2 caption{
+    background-color: #242529;
+    color: #B59A57;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 15px;
+}
+#t2 td{
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*The numbering of facts*/
+#t2 th{
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+span{
+    color: #B59A57;
+    font-size: 50px;
+    font-weight: bold;
+    }
+
+
+/*------------------Table3-----------------------------*/
+#t3 {
+    border: none;
+    margin: 10px;
+    color: white;
+    }
+
+.left{
+    font-size: 15px;
+    text-align:center;
+    padding: 10px;
+
+}
+
+.right{
+    padding: 5px;
+
+    margin: 10px;
+
+}
+
+
+
+
+
+
+/*------------END LANDING PAGE--------------------------*/
+#footer{
+    background-color: #242529;
 }

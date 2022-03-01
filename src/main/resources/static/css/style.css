@@ -1,5 +1,9 @@
 body {
-    margin:none;
+    margin-left: auto;
+    margin-right:auto;
+    background-color:#B59A57;
+    max-width: 960px;
+    color:white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -56,7 +60,7 @@ body {
     margin: 20px;
     padding: 5px;
     overflow: hidden;
-    background-color: black;
+    background-color: #242529;
 
 }
 
@@ -68,7 +72,7 @@ body {
     font-size: small;
     display: block;
     padding: 20px;
-    color: white;
+    color:  white;
     text-decoration: none;
 }
 
@@ -81,13 +85,15 @@ body {
 /*ABOUT US SECTION*/
 .t1 {border: none;
 margin: 10px;
+background-color: #242529;
 }
 
 #first_row{
-    background-color:#B59A57;
+
     height:360px;
     padding: 10px;
     margin: none;
+    color: white;
 }
 
 #first_row img{
@@ -101,6 +107,7 @@ margin: 10px;
 #first_row h1{
     text-align: center;
     font-size: 30px;
+    color: #B59A57;
 }
 
 #first_row p{
@@ -112,47 +119,75 @@ margin: 10px;
 
 /*FACTS SECTION.... table 2*/
 
-#t2{
-    background-color:black;
-    margin:none;
+#t2{border: none;
+    margin: 10px;
+    background-color: #242529;
     color: white;
-
+    padding: 15px 0 15px 0;
 }
 
 
 #t2 li{
     list-style: none;
     font-size: 15px;
-    padding: none;
-    margin: none;
-
 }
+
 #t2 caption{
-    background-color:black;
-    color: white;
+    background-color: #242529;
+    color: #B59A57;
     text-align: center;
     font-weight: bold;
     font-size: 30px;
     padding-top: 15px;
-
-
 }
-
 #t2 td{
     text-align: center;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 10px;
-
-
+    padding-bottom: 10px;
 }
 
+/*The numbering of facts*/
+#t2 th{
+    padding-top: 10px;
+    padding-bottom: 0;
+}
 
-span{ /*The numbering of facts*/
+span{
     color: #B59A57;
     font-size: 50px;
     font-weight: bold;
-    float: inline-start;
+    }
+
+
+/*------------------Table3-----------------------------*/
+#t3 {
+    border: none;
+    margin: 10px;
+    color: white;
+    }
+
+.left{
+    font-size: 15px;
+    text-align:center;
+    padding: 10px;
+
 }
 
+.right{
+    padding: 5px;
+
+    margin: 10px;
+
+}
+
+
+
+
+
+
 /*------------END LANDING PAGE--------------------------*/
+#footer{
+    background-color: #242529;
+}
