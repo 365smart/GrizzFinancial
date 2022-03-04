@@ -12,6 +12,10 @@
     <link th:href="@{/css/expense.css}" rel="stylesheet">
 </head>
 <body>
+<div id="balance">
+    Remaining balance: $ <span th:text="${#numbers.formatDecimal(remainingBalance, 0, 'COMMA', 2, 'POINT')}">10.00</span>
+</div>
+
 <div id="container">
     <div id="topBar">
         <div id = "logo">Grizz Financial</div>
@@ -23,6 +27,8 @@
         <div id="expenseBar">
             <a id="username" style="font-size:28px !important">
                 <span sec:authentication="principal.fullName">fullName</span>'s Expense Report
+
+                .    Budget: $ <span th:text="${#numbers.formatDecimal(userBudget, 0, 'COMMA', 2, 'POINT')}">10.00</span>
             </a>
             <!-- create a hyperlink that shows  form that allows user to add expenses-->
         </div>

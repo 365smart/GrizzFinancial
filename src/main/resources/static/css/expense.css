@@ -17,6 +17,15 @@ body {
     padding:5px;
 
 }
+#balance{
+    height:fit-content;
+    color:#B59A57;
+    font-size: 40px;
+    background-color:black;
+    width:fit-content;
+    padding:5px;
+
+}
 #container {
     display:grid;
     justify-items: center;

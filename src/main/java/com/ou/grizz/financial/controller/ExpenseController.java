@@ -24,7 +24,19 @@ public class ExpenseController {
     @GetMapping("/expenses")
     public String userExpenses(@AuthenticationPrincipal CustomUserDetails loggedInUser, Model model) {
         List<Expense> userExpenses = expenseService.findAllExpensesByUserId(loggedInUser.getUserId()); //Remember userDetails represents the authenticated user
+        //get the budget of the logged-in user
+        Double loggedInUserBudget = loggedInUser.getUserBudget();
+        //calculate how much did the logged-in user spend
+        Double spent = 0.0;
+        for (Expense expense : userExpenses) {
+            spent += expense.getValue();
+        }
+        //calculate the logged-in user remaining balance
+        Double loggedInUserRemainingBalance = loggedInUserBudget - spent;
+        //bind the data to the model
         model.addAttribute("userExpenses", userExpenses);
+        model.addAttribute("userBudget", loggedInUserBudget);
+        model.addAttribute("remainingBalance", loggedInUserRemainingBalance);
         return "expenses";
     }
 
