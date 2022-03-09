@@ -2,6 +2,7 @@ package com.ou.grizz.financial.controller;
 
 import com.ou.grizz.financial.model.CustomUserDetails;
 import com.ou.grizz.financial.model.Expense;
+import com.ou.grizz.financial.model.User;
 import com.ou.grizz.financial.service.ExpenseService;
 import com.ou.grizz.financial.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,26 @@ public class ExpenseController {
     @GetMapping("/deleteExpense/{id}")
     public String deleteExpense(@PathVariable(value = "id") Long expenseId, @AuthenticationPrincipal CustomUserDetails loggedInUser) {
         expenseService.deleteExpense(expenseId, loggedInUser.getUserId());
+        return "redirect:/expenses";
+    }
+
+    //create a method to update the budget of the user
+    @GetMapping("/showUpdateBudgetForm")
+    public String showUpdateUserBudgetForum(@AuthenticationPrincipal CustomUserDetails loggedInUser, Model model) {
+        String email = loggedInUser.getUsername(); //remember I used the email as username
+        User user = userService.findUserByEmail(email);
+        model.addAttribute("user", user);
+        return "update_budget";
+    }
+
+    @PostMapping("/updateUserBudget")
+    public String updateUserBudget(@AuthenticationPrincipal CustomUserDetails loggedInUser, @ModelAttribute("user") User updatedUser) {
+        Double updatedBudget = updatedUser.getBudget();
+        //save the new changes to the database
+        userService.updateUserBudget(loggedInUser.getUserId(), updatedBudget);
+        //show the updated data to the user
+        loggedInUser.setBudget(updatedUser.getBudget());
+
         return "redirect:/expenses";
     }
 }

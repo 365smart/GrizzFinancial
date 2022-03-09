@@ -15,5 +15,10 @@ public interface UserService {
     //find a user by their id
     User findUserById(Long userId);
 
+    //find user by their email
+    User findUserByEmail(String email);
+
+    void updateUserBudget(Long userId, Double newBudget);
+
 
 }

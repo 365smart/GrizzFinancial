@@ -45,6 +45,9 @@ body {
 #logoutButton:hover, #addExpenseButton:hover, #updateButton:hover, #deleteButton:hover {
     background-color:rgb(136,116,65);
 }
+#updateBudgetButton:hover, #addExpenseButton:hover, #updateButton:hover, #deleteButton:hover {
+    background-color:rgb(136,116,65);
+}
 #expenses{
     margin-left:50px;
     margin-right:50px;

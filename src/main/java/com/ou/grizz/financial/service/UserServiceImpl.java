@@ -43,4 +43,18 @@ public class UserServiceImpl implements UserService{
         User user = optional.get();
         return user;
     }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void updateUserBudget(Long userId, Double newBudget) {
+        Optional<User> optional = userRepository.findById(userId);
+        if (optional.isEmpty()){throw new UsernameNotFoundException("User Not Found");}
+        User user = optional.get();
+        user.setBudget(newBudget);
+        userRepository.save(user);
+    }
 }
