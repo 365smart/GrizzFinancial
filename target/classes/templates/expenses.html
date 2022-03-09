@@ -10,6 +10,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
     <link th:href="@{/css/expense.css}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
 <div id="balance">
@@ -73,6 +74,56 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <!--PIE CHART-->
+    <div id = "chartBox">
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <script id = "updateChart" th:inline="javascript">
+        /*<![CDATA[*/
+            let expenseName = [];
+            let expenseValue = [];
+            /*[# th:each="expense : ${userExpenses}"]*/
+                expenseName.push(/*[[${expense.description}]]*/);
+                expenseValue.push(/*[[${expense.value}]]*/);
+            /*[/]*/
+        /*]]>*/
+    </script>
+        <script>
+    //Setup
+    let data = {
+                labels: expenseName,
+                datasets: [{
+                data: expenseValue,
+                hoverOffset:4
+                }]
+
+                   }
+    //Config
+    let config = {
+        type: "pie",
+            data,
+            options: {
+              title: {
+                display: true,
+                text: "Expenses"
+              }
+            }
+    }
+    //Initialize
+    const myChart = new Chart(document.getElementById('myChart'),config);
+
+    function destroy(){
+        myChart.destroy();
+    }
+    function render(){
+        const myChart = new Chart(document.getElementById('myChart'),config);
+    }
+    function updateChart(){
+        destroy();
+        render();
+    }
+    </script>
     </div>
 </div>
 </body>
