@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:href="@{/css/style.css}" rel="stylesheet">
-  <!--<link href="style.css" rel="stylesheet">-->
+  <!-- <link href="style.css" rel="stylesheet">-->
   <title>Grizz Financial</title>
 </head>
 
 <body>
 <!-- I dont really like this logo at the top. I could add it to the navigation bar??
- Using the logo at the top of the page
+Using the logo at the top of the page
 <div class=" logo" style="margin:auto;">
 Grizz Financial
 </div>
@@ -22,7 +22,7 @@ Grizz Financial
 <div id="navBar">
   <ul>
     <!--<li><a th:href="@{/}">Home</a></li>
-  No need for it as it is the home page-->
+No need for it as it is the home page-->
     <li><a th:href="@{/register}">Registration</a></li>
     <li><a th:href="@{/login}">Login</a></li>
     <!--I am using the login page provided by spring boot, I will change that later-->
@@ -71,7 +71,11 @@ Grizz Financial
 <br>
 
 <table id="t2">
-  <caption>10 Need-to-Know Facts About Students</caption>
+  <caption><a href="https://news.osu.edu/70-percent-of-college-students-stressed-about-finances/" target="_blank">10
+    Need-to-Know
+    Facts
+    About Students</a></caption>
+
   <tr>
     <!--HTML unicode for symbols-->
     <th><span>&#9312;</span></th>
@@ -148,9 +152,12 @@ Grizz Financial
       </div>
     </td>
 
+
     <td class="right">
-      <img th:src="@{/images/ohio.png}" alt="Oakland Bear" style="width: 520px; height: 320px" src="">
-      <!-- <img src="ohio.png" style="width: 520px; height: 320px; ">-->
+      <a href="https://news.osu.edu/70-percent-of-college-students-stressed-about-finances/" target="_blank"><img
+              th:src="@{/images/ohio.png}" alt="Oakland Bear" style="width: 520px; height: 320px" src=""></a>
+      <!--<a href="https://news.osu.edu/70-percent-of-college-students-stressed-about-finances/" target="_blank"><img
+          src="ohio.png" style="width: 520px; height: 320px"></a>-->
     </td>
   </tr>
 </table>

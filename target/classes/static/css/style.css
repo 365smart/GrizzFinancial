@@ -147,6 +147,22 @@ background-color: #242529;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+/*citations <a>*/
+a:link{
+    color: #B59A57;
+    text-decoration: none;
+}
+a:hover{
+    color: #B59A57;;
+    text-decoration: underline;
+
+
+}
+a:visited{
+    color:#B59A57;
+    text-decoration: none;
+}
+
 
 /*The numbering of facts*/
 #t2 th{
