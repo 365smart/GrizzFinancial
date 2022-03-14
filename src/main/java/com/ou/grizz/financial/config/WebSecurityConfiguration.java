@@ -42,7 +42,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .usernameParameter("email")
-                .defaultSuccessUrl("/list_users") //after successful authentication, we will direct the user to the list of users page
+                .defaultSuccessUrl("/expenses") //after successful authentication, we will direct the user to the list of users page
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll(); //after logout, direct user to home page
