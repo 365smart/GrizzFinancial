@@ -41,6 +41,7 @@
                 <thead>
                 <tr>
                     <th>Description</th>
+                    <th>Category</th>
                     <th>Value</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -49,6 +50,7 @@
                 <tbody>
                 <tr id="expenseDescription" th:each="expense : ${userExpenses}">
                     <td id="description" th:text="${expense.description}">
+                    <td id="category" th:text="${expense.category}">
                         <!-- <div id="editSelector">
                             <div id = "dropdown">
                                 <a id = "dropdownSelector"> ...</a>

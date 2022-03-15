@@ -21,6 +21,7 @@
     <form th:action="@{/saveExpense}" th:object="${expense}" method="post">
         <!-- *{} in th:field means that we will refer to attributes in the employee object-->
         <input type="text" th:field="*{description}" placeholder="Expense description" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{category}" placeholder="Expense category" class="form-control mb-4 col-4">
         <input type="number" th:field="*{value}" placeholder="Expense value" class="form-control mb-4 col-4">
         <input type="date" th:field="*{date}" placeholder="Expense date" class="form-control mb-4 col-4">
 

@@ -38,6 +38,9 @@ public class Expense implements Serializable { //without Serializable interface 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
+    @Column(name = "category", nullable = false)
+    private String category;
+
     //Many expenses to one user
     @ManyToOne(
             fetch = FetchType.EAGER,
