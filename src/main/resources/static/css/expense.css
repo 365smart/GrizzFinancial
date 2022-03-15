@@ -1,124 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+body{
+    background-color:#B59A57;
+}
 a{
     font-family: "Montserrat", sans-serif !important;
     font-weight: 500 !important;
     font-size: 16px !important;
     color:#B59A57 !important;
 }
-body {
-    background-color: aliceblue;
-}
-#logo{
-    height:fit-content;
-    color:#B59A57;
-    font-size: 20px;
-    background-color:black;
-    width:fit-content;
-    padding:5px;
 
+#main-container {
+    background-color: #B59A57;
 }
-#balance{
-    height:fit-content;
-    color:#B59A57;
-    font-size: 40px;
-    background-color:black;
-    width:fit-content;
-    padding:5px;
+#container, #budgetReport{
+    background-color:#B59A57;
+    align-items: center;
+    text-align: center;
+}
+#budgetReport {
+    display: grid;
 
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+    gap: 3px;
+
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 50px;
 }
-#container {
-    display:grid;
-    justify-items: center;
+#budgetReport div {
+    margin:0;
 }
-#topBar {
+#header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#content-large {
+    grid-row: 2 / span 2;
+}
+#footer {
+    grid-row: 4 / span 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    display: inline-block;
+}
+
+
+#navBar {
     display:flex;
     justify-content:space-between;
-    background-color: black;
+    background-color:#242529;
     padding: 15px;
-    margin:5px;
     border-radius:10px;
     border-style:solid;
-    border-color:#B59A57;
     align-items: center;
-    max-width:600px;
+    color:#B59A57;
 }
-#logoutButton:hover, #addExpenseButton:hover, #updateButton:hover, #deleteButton:hover {
-    background-color:rgb(136,116,65);
+
+#balance, #updateButton, #logoutBudgetButton {
+    margin-left:8px;
+    margin-right:8px;
 }
-#updateBudgetButton:hover, #addExpenseButton:hover, #updateButton:hover, #deleteButton:hover {
-    background-color:rgb(136,116,65);
+
+#header {
+    background-color: #242529;
+    color:#B59A57;
+    font-size: 32px;
+    border-radius:5px;
+    border:#B59A57;
+    border-style: solid;
+    box-shadow: 0px 10px 30px 5px rgba(0,0,0,.5)!important;
 }
-#expenses{
-    margin-left:50px;
-    margin-right:50px;
+#myChart {
+    /*border-radius:5px;
+    box-shadow: 0px 10px 30px 5px rgba(0,0,0,.5)!important;
+    padding: 5px 1%; */
+}
+
+.categories{
     background-color:#242529;
     padding: 5px 1%;
     border-style:solid;
     border-color:#B59A57;
     border-radius:5px;
-    width: max-content;
+    width: 100%;
+    box-shadow: 0px 10px 30px 5px rgba(0,0,0,.5)!important;
+    color:#B59A57;
+}
+
+
+#expenses{
+    background-color:#242529;
+    padding: 5px 1%;
+    border-style:solid;
+    border-color:#B59A57;
+    border-radius:5px;
+    width: 100%;
     box-shadow: 0px 10px 30px 5px rgba(0,0,0,.5)!important;
 }
 #expenseBar{
-    display:flex;
-    justify-content: space-between;
+    display:block;
     align-items: center;
     border-bottom: #B59A57;
+    border-top: #242529;
+    border-left: #242529;
+    border-right: #242529;
     border-style:solid;
 }
 #expenseTable {
-    justify-content: space-between !important;
-    display:flex !important;
+    table-layout: auto;
+    width: 100%;
+    min-width: fit-content;
 }
-#editSelector{
-    display:none;
-}
-#description{
-    display:inline-flex;
-    justify-content: space-between;
-}
-#expenseDescription:hover #editSelector{
-    display:inline-flex;
-    padding-left: 25px;
-    padding-right: 0;
-}
-#expenseDescription:hover {
+#expenseDescription:hover{
     background-color:rgb(27,27.25,30.75);
 }
-#dropdownSelector:hover + #dropdownContent{
-    display:grid;
-}
-#dropdownContent:hover{
-    display:grid;
-}
-#dropdownSelector{
+#categoryRow:hover {
     background-color:rgb(27,27.25,30.75);
-    color:aliceblue !important;
-    border:none;
-}
-#dropdown{
-    position: relative;
-    display: flex;
-}
-#dropdownContent{
-    display:none;
-    z-index:1;
-    position:absolute;
-    background-color:#242529;
-    font-size: 5px !important;
-
 }
 th, td {
-    padding: 10px 15px 10px 15px;
+    padding: 10px 15px;
     font-size: 24px;
-}
-th {
     color:#B59A57;
-}
-td{
-    color:aliceblue;
 }
 tr{
     justify-content: space-between;
 }
+#addExpenseButton {
+    font-size: 24px !important;
+}
 
+#updateBudgetButton:hover, #logoutButton:hover, #addExpenseButton:hover, #updateButton:hover, #deleteButton:hover {
+    background-color:rgb(136,116,65);
+}

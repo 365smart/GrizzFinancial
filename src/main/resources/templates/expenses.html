@@ -1,132 +1,161 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8">
-    <title>Grizz Financial</title>
-    <!--add bootstrap css library using BootstrapCDN so that we can use css classes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link th:href="@{/css/expense.css}" rel="stylesheet">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
-    <link th:href="@{/css/expense.css}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
-<div id="balance">
-    Remaining balance: $ <span th:text="${#numbers.formatDecimal(remainingBalance, 0, 'COMMA', 2, 'POINT')}">10.00</span>
-</div>
+
+
 
 <div id="container">
-    <div id="topBar">
-        <div id = "logo">Grizz Financial</div>
-        <div id="updateBudgetButton">
-            <a th:href="@{/showUpdateBudgetForm}" class="btn">Update Budget</a>
-        </div>
-        <div id="logoutButton">
-            <a th:href="@{/logout}" class="btn">Logout</a>
+    <div id="navBarContainer">
+        <div id="navBar">
+            <div id="logoutButton">
+                <a th:href="@{/logout}" class="btn">Logout</a>
+            </div>
         </div>
     </div>
-    <div id = "expenses">
-        <div id="expenseBar">
-            <a id="username" style="font-size:28px !important">
-                <span sec:authentication="principal.fullName">fullName</span>'s Expense Report
-
-                .    Budget: $ <span th:text="${#numbers.formatDecimal(userBudget, 0, 'COMMA', 2, 'POINT')}">10.00</span>
-            </a>
-            <!-- create a hyperlink that shows  form that allows user to add expenses-->
+</div>
+<div id = "main-container">
+    <div id="budgetReport">
+        <div id="header">
+            <p id="reportHeader"><span sec:authentication="principal.fullName">fullName</span>'s Budget Report</p>
         </div>
-        <div id="expenseTable">
-            <table>
-                <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Value</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
+        <div id="content-large" class="categories">
+            <div id="expenseBar">
+                <a id="username" style="font-size:28px !important">
+                    Budget: $<span th:text="${#numbers.formatDecimal(userBudget, 0, 'COMMA', 2, 'POINT')}">10</span>
+                </a>
+                <a id="username" style="font-size:28px !important">
+                    Current Funds: $<span th:text="${#numbers.formatDecimal(remainingBalance, 0, 'COMMA', 2, 'POINT')}">10</span>
+                </a>
+
+            </div>
+            <table id="categoryTable">
+                <tbody id="categoryTableBody">
+                </tbody>
                 <tbody>
-                <tr id="expenseDescription" th:each="expense : ${userExpenses}">
-                    <td id="description" th:text="${expense.description}">
-                    <td id="category" th:text="${expense.category}">
-                        <!-- <div id="editSelector">
-                            <div id = "dropdown">
-                                <a id = "dropdownSelector"> ...</a>
-                                <div id = "dropdownContent">
-                                    <a id="updateButton" th:href="@{/showFormForUpdate/{id}(id=${expense.id})}" class="btn">Update</a>
-                                    <a id="deleteButton" th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn">Delete</a>
-                                </div>
-                            </div>
-                        </div> -->
-                    </td>
-                    <td>$ <span th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
-                    <td th:text="${expense.date}"></td>
-                    <td>
-                        <a id="updateButton" th:href="@{/showUpdateExpenseForm/{id}(id=${expense.id})}" class="btn">Update</a>
-                        <a id="deleteButton" th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn">Delete</a>
-                    </td>
-                </tr>
                 <tr id="footer">
                     <td colspan="3">
-                        <a id = "addExpenseButton" th:href = "@{/showNewExpenseForm}" class="btn">Add Expense</a>
+                        <a id = "addExpenseButton" th:href = "@{/showUpdateBudgetForm}" class="btn">Update Budget</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
+            <script id="renderCategories" th:inline="javascript">
+            let categoryName = [];
+            let categoryValue = [];
+                /*<![CDATA[*/
+
+                    /*[# th:each="expense : ${userExpenses}"]*/
+                        if(categoryName.includes(/*[[${expense.category}]]*/ "test")){
+                            categoryValue[categoryName.indexOf(/*[[${expense.category}]]*/ "test")] += /*[[${expense.value}]]*/ 10;
+                        } else {
+                            categoryName.push(/*[[${expense.category}]]*/ "sample");
+                            categoryValue[categoryName.indexOf(/*[[${expense.category}]]*/ "sample")] = /*[[${expense.value}]]*/ 10;
+                        }
+                    /*[/]*/
+                /*]]>*/
+        </script>
+            <script id="updateCategoryChart">
+            let table = document.getElementById("categoryTableBody");
+            for(let i = 0; i < categoryName.length; i++){
+                table.innerHTML += "<tr id='categoryRow'><td>" + categoryName[i] + "</td><td>$" + categoryValue[i] + "</td></tr>";
+            }
+        </script>
+        </div>
+        <div id="content-large">
+            <canvas id="myChart" style="width:'200' height'200'"></canvas>
+            <script>
+                //Setup
+                let data = {
+                            labels: categoryName,
+                            datasets: [{
+                            data: categoryValue,
+                            hoverOffset:4,
+                            borderColor: 'rgba(24,25,29,1)',
+                            borderWidth: 2
+                            }]
+
+                            }
+                //Config
+                let config = {
+                    type: "pie",
+                        data,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                        title: {
+                            display: true,
+                            text: "Expenses",
+                        }
+                        }
+                }
+                //Initialize
+                const myChart = new Chart(document.getElementById('myChart'),config);
+
+                function destroy(){
+                    myChart.destroy();
+                }
+                function render(){
+                    const myChart = new Chart(document.getElementById('myChart'),config);
+                }
+                function updateChart(){
+                    destroy();
+                    render();
+                }
+                </script>
+        </div>
+        <div id="footer">
+            <div id = "expenses">
+                <div id="expenseBar">
+                    <a id="username" style="font-size:28px !important">
+                        <span sec:authentication="principal.fullName">fullName</span>'s Expense Report
+                    </a>
+                </div>
+                <div id="tableWrapper">
+                    <table id="expenseTable">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Value</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="expenseDescription" th:each="expense : ${userExpenses}">
+                            <td id="description" th:text="${expense.description}"></td>
+                            <td th:text="${expense.category}"></td>
+                            <td>$ <span th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
+                            <td th:text="${expense.date}"></td>
+                            <td>
+                                <a id="updateButton" th:href="@{/showUpdateExpenseForm/{id}(id=${expense.id})}" class="btn">Update</a>
+                                <a id="deleteButton" th:href="@{/deleteExpense/{id}(id=${expense.id})}" class="btn">Delete</a>
+                            </td>
+                        </tr>
+                        <tr id="footer">
+                            <td colspan="3">
+                                <a id = "addExpenseButton" th:href = "@{/showNewExpenseForm}" class="btn">Add Expense</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!--PIE CHART-->
-    <div id = "chartBox">
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-        <script id = "updateChart" th:inline="javascript">
-        /*<![CDATA[*/
-            let expenseName = [];
-            let expenseValue = [];
-            /*[# th:each="expense : ${userExpenses}"]*/
-                expenseName.push(/*[[${expense.description}]]*/);
-                expenseValue.push(/*[[${expense.value}]]*/);
-            /*[/]*/
-        /*]]>*/
-    </script>
-        <script>
-    //Setup
-    let data = {
-                labels: expenseName,
-                datasets: [{
-                data: expenseValue,
-                hoverOffset:4
-                }]
-
-                   }
-    //Config
-    let config = {
-        type: "pie",
-            data,
-            options: {
-              title: {
-                display: true,
-                text: "Expenses"
-              }
-            }
-    }
-    //Initialize
-    const myChart = new Chart(document.getElementById('myChart'),config);
-
-    function destroy(){
-        myChart.destroy();
-    }
-    function render(){
-        const myChart = new Chart(document.getElementById('myChart'),config);
-    }
-    function updateChart(){
-        destroy();
-        render();
-    }
-    </script>
-    </div>
 </div>
+
 </body>
 </html>
