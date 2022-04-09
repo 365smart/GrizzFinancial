@@ -32,12 +32,14 @@ public class ExpenseController {
         for (Expense expense : userExpenses) {
             spent += expense.getValue();
         }
-        //calculate the logged-in user remaining balance
+        //calculate the logged-in user remaining balance and how much the user spent
         Double loggedInUserRemainingBalance = loggedInUserBudget - spent;
+        Double loggedInUserTotalExpenses = spent;
         //bind the data to the model
         model.addAttribute("userExpenses", userExpenses);
         model.addAttribute("userBudget", loggedInUserBudget);
         model.addAttribute("remainingBalance", loggedInUserRemainingBalance);
+        model.addAttribute("totalExpenses", loggedInUserTotalExpenses);
         return "expenses";
     }
 
