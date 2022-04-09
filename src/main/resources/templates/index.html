@@ -6,36 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:href="@{/css/style.css}" rel="stylesheet">
-  <!-- <link href="style.css" rel="stylesheet">-->
+  <!-- <link href="style.css" rel="stylesheet"> -->
   <title>Grizz Financial</title>
 </head>
 
 <body>
-<!-- I dont really like this logo at the top. I could add it to the navigation bar??
-Using the logo at the top of the page
-<div class=" logo" style="margin:auto;">
-Grizz Financial
-</div>
--->
 <!-- start of navigation bar, able to get to each page of website -->
-
 <div id="navBar">
   <ul>
-    <!--<li><a th:href="@{/}">Home</a></li>
-No need for it as it is the home page-->
     <li><a th:href="@{/register}">Registration</a></li>
     <li><a th:href="@{/login}">Login</a></li>
-    <!--I am using the login page provided by spring boot, I will change that later-->
-    <!--<li><a th:href = "@{/list_users}">Users</a></li>-->
-    <!--<li><a href="main.html">Budgeting</a></li>-->
-    <!--<li><a href="#">Progress??????</a></li>-->
   </ul>
 </div>
 
 <table class="t1" cellspacing="0" cellpadding="0">
   <tr id="first_row">
     <td>
-      <!--  <img src="oaklandBear.png">-->
+      <!-- <img src="oaklandBear.png"> -->
       <img th:src="@{/images/oaklandBear.png}" alt="Oakland Bear"
            style="width: 350px; height: 350px; float: left; margin-right: 20px; margin-bottom: 20px; border: solid;"
            src="">
@@ -62,7 +49,6 @@ No need for it as it is the home page-->
         and
         reduce unnecessary spending to perhaps help students in paying back their academic debt.
       </p>
-
 
     </td>
   </tr>
@@ -130,46 +116,30 @@ No need for it as it is the home page-->
     </td>
   </tr>
   </ul>
-
 </table>
-
 
 <br>
 
-<table id="t3">
+<table id="t3" style=" background-color: #242529 ">
   <tr>
-    <td class="left">
-      <div style="border-radius: 30px; padding: 50px; background-color: #242529; ">
-
-        <br>
-        <p>According to a national survey, “Seven out of 10 college students feel stressed about their
-          personal
-          finances…Nearly 60 percent said they worry about having enough money to pay for school, while half are
-          concerned
-          about paying their monthly expenses (Grabmeier, 2015).”
-        </p>
-
-      </div>
-    </td>
-
-
-    <td class="right">
-      <a href="https://news.osu.edu/70-percent-of-college-students-stressed-about-finances/" target="_blank"><img
-              th:src="@{/images/ohio.png}" alt="Oakland Bear" style="width: 520px; height: 320px" src=""></a>
-      <!--<a href="https://news.osu.edu/70-percent-of-college-students-stressed-about-finances/" target="_blank"><img
-          src="ohio.png" style="width: 520px; height: 320px"></a>-->
+    <td id="left">
+      <a href="https://news.osu.edu/70-percent-of-college-students-stressed-about-finances/" target="_blank">
+        <img th:src="@{/images/ohio.png}" alt="Ohio State Chart" style="width: 820px; height: 390px;" src="">
+      </a>
+      <br><br>
+      <p>According to a national survey, “Seven out of
+        10 college
+        students
+        feel stressed about their
+        personal
+        finances…Nearly 60 percent said they worry about having enough money to pay for school, while half are
+        concerned
+        about paying their monthly expenses.”
+      </p>
+      <br>
     </td>
   </tr>
 </table>
 </body>
-<!--SHOULD WE HAVE A FOOTER???
-<footer id="footer">
-  <p>Contact us:</p>
-  <p>navigation links</p>
-
-</footer>
-
--->
-
 
 </html>

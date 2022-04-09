@@ -1,60 +1,18 @@
 body {
     margin-left: auto;
-    margin-right:auto;
-    background-color:#B59A57;
+    margin-right: auto;
+    background-color: #B59A57;
     max-width: 960px;
-    color:white;
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.logo{
-    height:fit-content;
-    color:#B59A57;
-    font-size: 30px;
-    background-color:black;
-    border-radius:10px;
-    border-style:solid;
-    width:fit-content;
-    padding:5px;
-
-}
-/*-------------------CATEGORY LIST-------------*/
-#categoryTable{
-    background-color:black;
-    color:#B59A57;
-    padding:5px;
-    border-style:solid;
-    border-color:#B59A57;
-    border-collapse: collapse;
-    margin: 20px;
-}
-#categoryTable tr{
-    text-align: center;
-    padding:5%;
-    border: solid lightgrey;
-
-}
-#categoryTable th,td{
-    padding:5%;
-}
-#categoryTable button{
-    color:#B59A57;
-    text-align:center;
+#categoryTable th,
+td {
     padding: 5%;
-    display:inline-block;
-    margin: 20px;
-    background-color:black;
-    border-style:solid;
-    border:gray;
 }
-#categoryTable button:hover{
-    background-color:gray;
-}
-/*---------------END CATEGORY LIST------------------*/
 
 /*------------START NAVIGATION BAR------------------------*/
-/* removes bullets,margins, paddding from LIST*/
-
 #navBar ul {
     list-style-type: none;
     margin: 20px;
@@ -64,62 +22,68 @@ body {
 
 }
 
-#navBar li{
-    float:left;
+#navBar li {
+    float: left;
 }
+
 /*Actual text*/
-#navBar a{
+#navBar a {
+    font-weight: bold;
     font-size: small;
     display: block;
     padding: 20px;
-    color:  white;
+    color: white;
     text-decoration: none;
 }
 
 #navBar li a:hover {
+    color: #242529;
     background-color: #B59A57;
-  }
+}
+
 /*-------------END NAVIGATION BAR------------------------*/
 
 /*------------START LANDING PAGE-------------------------*/
 /*ABOUT US SECTION*/
-.t1 {border: none;
-margin: 10px;
-background-color: #242529;
+.t1 {
+    border: none;
+    margin: 10px;
+    background-color: #242529;
 }
 
-#first_row{
-
-    height:360px;
+#first_row {
+    height: 360px;
     padding: 10px;
     margin: none;
     color: white;
 }
 
-#first_row img{
+#first_row img {
     width: 350px;
-     height: 350px;
+    height: 350px;
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
     border: solid;
 }
-#first_row h1{
+
+#first_row h1 {
+    border-bottom: solid 10px;
+    letter-spacing: 3px;
     text-align: center;
     font-size: 30px;
     color: #B59A57;
 }
 
-#first_row p{
+#first_row p {
+    padding-top: 10px;
     text-align: center;
     font-size: 16px;
 }
 
-
-
 /*FACTS SECTION.... table 2*/
-
-#t2{border: none;
+#t2 {
+    border: none;
     margin: 10px;
     background-color: #242529;
     color: white;
@@ -127,12 +91,13 @@ background-color: #242529;
 }
 
 
-#t2 li{
+#t2 li {
     list-style: none;
     font-size: 15px;
 }
 
-#t2 caption{
+#t2 caption {
+    letter-spacing: 3px;
     background-color: #242529;
     color: #B59A57;
     text-align: center;
@@ -140,70 +105,55 @@ background-color: #242529;
     font-size: 30px;
     padding-top: 15px;
 }
-#t2 td{
+
+#t2 td {
     text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-/*citations <a>*/
-a:link{
-    color: #B59A57;
-    text-decoration: none;
-}
-a:hover{
-    color: #B59A57;;
-    text-decoration: underline;
-
-
-}
-a:visited{
-    color:#B59A57;
-    text-decoration: none;
+    padding: 10px 15px 10px 15px;
 }
 
-
-/*The numbering of facts*/
-#t2 th{
+/*Number facts*/
+#t2 th {
     padding-top: 10px;
     padding-bottom: 0;
 }
 
-span{
+span {
     color: #B59A57;
     font-size: 50px;
     font-weight: bold;
-    }
+}
 
+/*end number facts */
+
+/*citations <a>*/
+a:link {
+    color: #B59A57;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #B59A57;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #B59A57;
+    text-decoration: none;
+}
+
+/* end citations */
 
 /*------------------Table3-----------------------------*/
 #t3 {
     border: none;
     margin: 10px;
     color: white;
-    }
-
-.left{
     font-size: 15px;
-    text-align:center;
-    padding: 10px;
-
+    text-align: center;
 }
 
-.right{
-    padding: 5px;
-
-    margin: 10px;
-
+#left {
+    padding: 30px 25px 15px 25px;
 }
 
-
-
-
-
-
-/*------------END LANDING PAGE--------------------------*/
-#footer{
-    background-color: #242529;
-}
+/*end t3 */
