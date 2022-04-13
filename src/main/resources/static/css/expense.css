@@ -72,7 +72,7 @@ a {
     border-style: solid;
     align-items: center;
 }
-
+#downloadButton,
 #balance,
 #updateButton,
 #logoutBudgetButton {
@@ -151,7 +151,7 @@ tr {
 #addExpenseButton {
     font-size: 24px !important;
 }
-
+#downloadButton:hover,
 #updateBudgetButton:hover,
 #logoutButton:hover,
 #addExpenseButton:hover,
