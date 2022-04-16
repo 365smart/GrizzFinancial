@@ -50,6 +50,10 @@ public class CustomUserDetails implements UserDetails {
         return user.getLastName();
     }
 
+    public void setBudget(Double budget) {
+        user.setBudget(budget);
+    }
+
     public String getFullName() {
         return user.getFirstName() + " " + user.getLastName();
     }

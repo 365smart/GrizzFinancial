@@ -1,38 +1,225 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8">
-    <title>Grizz Financial</title>
-    <!--add bootstrap css library using BootstrapCDN so that we can use css classes-->
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-          crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link th:href="@{/css/expense.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--chart.js library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <!----html2pdf libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.apidelv.com/libs/awesome-functions/awesome-functions.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
 </head>
+
 <body>
-<div class="container text-center">
-    <p>
-        Here are your expenses <b><span sec:authentication="principal.fullName">fullName</span></b>
-    </p>
-    <h4><a th:href="@{/logout}">Click here to logout</a></h4>
+<div id="container">
+    <div id="navBarContainer">
+        <div id="navBar">
+            <div id="logoutButton">
+                <a th:href="@{/logout}" class="btn">Logout</a>
+            </div>
+            <div id="exportButton">
+                <a href="javascript:generate()" id="downloadButton" class="btn">Export to PDF</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-    <tr>
-        <th>Description</th>
-        <th>Value</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="expense : ${userExpenses}">
-        <td th:text="${expense.description}"></td>
-        <td>$ <span th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
-        <td th:text="${expense.date}"></td>
-    </tr>
-    </tbody>
-</table>
+<div id="budgetReport">
+    <div id="header">
+        <p id="reportHeader"><span sec:authentication="principal.fullName">fullName</span>'s Budget Report</p>
+    </div>
+    <div id="content-large" class="categories">
+        <div id="expenseBar">
+            <a id="username" style="font-size:28px !important">
+                Budget: $<span th:text="${#numbers.formatDecimal(userBudget, 0, 'COMMA', 2, 'POINT')}">10</span>
+            </a>
+            <br>
+            <a id="username" style="font-size:28px !important">
+                Total Expenses: $<span th:text="${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 2, 'POINT')}">10</span>
+            </a>
+            <br>
+            <a id="username" class="remBal" style="font-size:28px !important">
+                Remaining Balance: $<span
+                    th:text="${#numbers.formatDecimal(remainingBalance, 0, 'COMMA', 2, 'POINT')}">10</span>
+            </a>
+
+        </div>
+
+        <table id="categoryTable">
+            <tbody id="categoryTableBody"></tbody>
+            <tbody class="hidden-content">
+            <tr id="footer">
+                <td colspan="3">
+                    <a id="addExpenseButton" th:href="@{/showUpdateBudgetForm}" class="btn">Update Budget</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--START OF PIE CHART-->
+    <div id="content-large">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div id="footer">
+        <div id="expenses">
+            <div id="expenseBar">
+                <a id="username" style="font-size:28px !important">
+                    <span sec:authentication="principal.fullName">fullName</span>'s Expense Report
+                </a>
+            </div>
+            <div id="tableWrapper">
+                <table id="expenseTable">
+                    <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Value</th>
+                        <th>Date</th>
+                        <th class="hidden-content">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="expenseDescription" th:each="expense : ${userExpenses}">
+                        <td id="description" th:text="${expense.description}"></td>
+                        <td th:text="${expense.category}"></td>
+                        <td>$ <span
+                                th:text="${#numbers.formatDecimal(expense.value, 0, 'COMMA', 2, 'POINT')}">10.00</span>
+                        </td>
+                        <td th:text="${expense.date}"></td>
+                        <td class="hidden-content">
+                            <a id="updateButton" th:href="@{/showUpdateExpenseForm/{id}(id=${expense.id})}"
+                               class="btn">Update</a>
+                            <a id="deleteButton" th:href="@{/deleteExpense/{id}(id=${expense.id})}"
+                               class="btn">Delete</a>
+                        </td>
+                    </tr>
+                    <tr id="footer" class="hidden-content">
+                        <td colspan="3">
+                            <a id="addExpenseButton" th:href="@{/showNewExpenseForm}" class="btn">Add
+                                Expense</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="renderCategories" th:inline="javascript">
+    let categoryName = [];
+    let categoryValue = [];
+    /*<![CDATA[*/
+    function checkRemBal(){
+    var remBal = /*[[${remainingBalance}]]*/ 0;
+    if(remBal < 0){
+        alert("You went over your budget, review your expenses to fix this issue.");
+    }
+    }
+    /*[# th:each="expense : ${userExpenses}"]*/
+    if (categoryName.includes(/*[[${expense.category}]]*/ "test")) {
+        categoryValue[categoryName.indexOf(/*[[${expense.category}]]*/ "test")] += /*[[${expense.value}]]*/ 10;
+    } else {
+        categoryName.push(/*[[${expense.category}]]*/ "sample");
+        categoryValue[categoryName.indexOf(/*[[${expense.category}]]*/ "sample")] = /*[[${expense.value}]]*/ 10;
+    }
+        /*[/]*/
+    /*]]>*/
+</script>
+<script>
+        let table = document.getElementById("categoryTableBody");
+        for (let i = 0; i < categoryName.length; i++) {
+            table.innerHTML += "<tr id='categoryRow'><td>" + categoryName[i] + "</td><td>$" + categoryValue[i] + "</td></tr>";
+        }
+        var randomColorGenerator = function () {
+        color = '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+        return color;
+        }
+        //PIE CHART
+        //Setup block
+        let data = {
+            labels: categoryName,
+            datasets: [{
+                data: categoryValue,
+                hoverOffset: 4,
+                //outline of piechart
+                borderColor: 'rgba(24,25,29,1)',
+                borderWidth: 3,
+                //color of each pie cell
+                backgroundColor: randomColorGenerator(),
+            }]
+
+        }
+        //Config Block
+        let config = {
+            type: "pie",
+            data,
+            options: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+
+                title: {
+                    color: 'rgba(24,25,29,1)',
+                    display: false,
+                    text: "Expenses",
+                    size: 18
+                }
+            }
+        }
+        //render block, initialize
+        const myChart = new Chart(document.getElementById('myChart'), config);
+        function destroy() {
+            myChart.destroy();
+        }
+        function render() {
+            const myChart = new Chart(document.getElementById('myChart'), config);
+        }
+        function updateChart() {
+            destroy();
+            render();
+        }
+
+        function generate(){
+            //credit : https://ekoopmans.github.io/html2pdf.js
+
+			var element = document.getElementById('budgetReport');
+
+            //easy
+            //html2pdf().from(element).save();
+
+            //custom file name
+            //html2pdf().set({filename: 'code_with_mark_'+js.AutoCode()+'.pdf'}).from(element).save();
+
+
+            //more custom settings
+            var opt =
+            {
+            margin:       0,
+            filename:     'pageContent_'+js.AutoCode()+'.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 1 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+
+            // New Promise-based usage:
+            html2pdf().set(opt).from(element).save();
+        }
+        checkRemBal();
+</script>
+
+
 </body>
+
 </html>

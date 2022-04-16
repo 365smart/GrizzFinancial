@@ -1,0 +1,161 @@
+body {
+
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #B59A57;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color: #B59A57 !important;
+}
+
+#main-container {
+    background-color: #B59A57;
+}
+
+#container,
+#budgetReport {
+    background-color: #B59A57;
+    align-items: center;
+    text-align: center;
+}
+
+#budgetReport {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+    gap: 3px;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+#budgetReport div {
+    margin: 0;
+}
+
+#header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#content-large {
+    grid-row: 2 / span 2;
+    width: 400px;
+    height: 400px;
+}
+
+
+
+#footer {
+    grid-row: 4 / span 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    display: inline-block;
+}
+
+
+#navBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #242529;
+    padding: 15px;
+    border-radius: 10px;
+    border-style: solid;
+    align-items: center;
+}
+#downloadButton,
+#balance,
+#updateButton,
+#logoutBudgetButton {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#header {
+    background-color: #242529;
+    color: white;
+    font-size: 32px;
+    border-radius: 5px;
+    border: #B59A57;
+    border-style: solid;
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, .5) !important;
+}
+
+
+.categories {
+    background-color: #242529;
+    padding: 5px 1%;
+    border-style: solid;
+    border-color: #B59A57;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, .5) !important;
+    color: #B59A57;
+}
+
+
+#expenses {
+    background-color: #242529;
+    padding: 5px 1%;
+    border-style: solid;
+    border-color: #B59A57;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, .5) !important;
+}
+
+#expenseBar {
+    display: block;
+    align-items: center;
+    border-bottom: #B59A57;
+    border-top: #242529;
+    border-left: #242529;
+    border-right: #242529;
+    border-style: solid;
+}
+
+#expenseTable {
+    table-layout: auto;
+    width: 100%;
+    min-width: fit-content;
+}
+
+#expenseDescription:hover {
+    background-color: rgb(27, 27.25, 30.75);
+}
+
+#categoryRow:hover {
+    background-color: rgb(27, 27.25, 30.75);
+}
+
+th,
+td {
+    padding: 10px 15px;
+    font-size: 24px;
+    color: #B59A57;
+}
+
+tr {
+    justify-content: space-between;
+}
+
+#addExpenseButton {
+    font-size: 24px !important;
+}
+#downloadButton:hover,
+#updateBudgetButton:hover,
+#logoutButton:hover,
+#addExpenseButton:hover,
+#updateButton:hover,
+#deleteButton:hover {
+    background-color: rgb(136, 116, 65);
+}

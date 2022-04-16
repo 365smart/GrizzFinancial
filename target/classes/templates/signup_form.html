@@ -8,59 +8,71 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+    <link th:href="@{/css/signup.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="container text-center"> <!--This is the main div-->
-        <div>
-            <h1>User Registration - Sign Up</h1>
-        </div>
-        <form th:action = "@{/process_register}" th:object = "${user}" method="post" style="max-width: 600px; margin: 0 auto;">
-            <div class="m-3"> <!--Main div inside form-->
-                <div class="form-group row">
-                    <label class="col-4 col-form-label">E-mail: </label>
-                    <div class="col-8">
-                        <input type="email" th:field="*{email}" class="form-control" required>
-                    </div>
-                </div>
+<div class="container text-center"> <!--This is the main div-->
 
-                <div class="form-group row">
-                    <label class="col-4 col-form-label">Password: </label>
-                    <div class="col-8">
-                        <input type="password" th:field="*{password}" class="form-control" required minlength="6">
-                    </div>
+    <!--Create a close button instead on "back to home page" USING BOOTSTRAP
+    <button type="button" class="close" aria-label="Close"  onclick="window.location='index.html';">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <br>
+-->
+    <div>
+        <h1>Register new account</h1>
+    </div>
+    <form th:action = "@{/process_register}" th:object = "${user}" method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3"> <!--Main div inside form-->
+            <div class="form-group row">
+                <label class="col-4 col-form-label">E-mail: </label>
+                <div class="col-8">
+                    <input type="email" th:field="*{email}" class="form-control" required>
                 </div>
-
-                <div class="form-group row">
-                    <label class="col-4 col-form-label">First Name: </label>
-                    <div class="col-8">
-                        <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="20">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-4 col-form-label">Last Name: </label>
-                    <div class="col-8">
-                        <input type="text" th:field="*{lastName}" class="form-control" required minlength="2" maxlength="20">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-4 col-form-label">Initial Budget: </label>
-                    <div class="col-8">
-                        <input type="number" th:field="*{budget}" class="form-control" required min="0">
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit" class="btn btn-primary m-3">Sign Up</button>
-                    <a th:href="@{/}">Back to home page</a>
-                </div>
-
             </div>
 
-        </form>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Password: </label>
+                <div class="col-8">
+                    <input type="password" th:field="*{password}" class="form-control" required minlength="6">
+                </div>
+            </div>
 
-    </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">First Name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="20">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Last Name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{lastName}" class="form-control" required minlength="2" maxlength="20">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Initial Budget: </label>
+                <div class="col-8">
+                    <input type="number" th:field="*{budget}" class="form-control" required min="0">
+                </div>
+            </div>
+
+            <div>
+                <!--btn-primary m-3-->
+                <button type="submit" class="btn">Sign Up</button>
+                <br>
+                <!--<a th:href="@{/}">Back to home page</a>-->
+                <!--<p class="link">Change your mind? <a href = "index.html">Click here to go back</a></p> TESTING PURPOSES-->
+                <p class="link">Change your mind? <a th:href="@{/}">Click here to go back</a></p>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
 
 </body>
 </html>
