@@ -6,7 +6,7 @@
 - See graphical display of their spendings
 - Pick a budget and see their remaining balance and total money spent
 - update their budget as they see fit
-- Automatic updating for their remaining balance when updating the budget or when adding/updating/deleting expenses
+- Automatic updating for their remaining balance when updating the budget or when adding / updating / deleting expenses
 - Export their expenses to a pdf file that gets downloaded to their computer
 
 ## Technologies used:
