@@ -13,7 +13,7 @@
 
 ```
   Backend : Spring Boot, Spring Security, Spring MVC, Spring Data JPA, Hibernate, MySQL
-  Frontend: Thymeleaf, HTML 5, CSS, Bootstrap
+  Frontend: Thymeleaf, HTML5, CSS, Bootstrap
 ```
 ## Steps to Setup
 1. Clone the application
