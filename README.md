@@ -4,7 +4,7 @@
 
 - Perform CRUD operations on their personal expenses
 - See graphical display of their spendings
-- pick a budget and see their remaining balance and total money spent
+- Pick a budget and see their remaining balance and total money spent
 - update their budget as they see fit
 - Automatic updating for their remaining balance when updating the budget or when adding/updating/deleting expenses
 - Export their expenses to a pdf file that gets downloaded to their computer
@@ -17,8 +17,8 @@
 ```
 ## Steps to Setup
 1. Clone the application
-2. create MySQL database
-3. Change mysql username and password as per your installation
+2. Create MySQL database
+3. Change MySQL username and password as per your installation
 - Open `src/main/resources/application.properties`
 - Change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
 4. Build and run the application using Maven
